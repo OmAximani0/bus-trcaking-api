@@ -2,6 +2,7 @@ from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework.response import  Response
 from rest_framework import status
+from datetime import datetime
 
 from . import models
 from . import serializers
@@ -11,10 +12,10 @@ class AllRoutes(generics.ListAPIView):
     serializer_class = serializers.RoutesSerializer
 
 class ViewLocations(APIView):
-    def get(self, request):
+    def post(self, request):
         Bus_id = request.data['Bus_id']
-        instance = models.Location.objects.filter(Bus_id=Bus_id)
-        serializer = serializers.LocationSerializer(instance, many=True)
+        instance = models.Location.objects.filter(Bus_id=Bus_id).order_by('-Location_id')[0]
+        serializer = serializers.LocationSerializer(instance)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 class AddLocation(APIView):
@@ -31,9 +32,11 @@ class AddLocation(APIView):
 class ViewBuses(APIView):
     def post(self, request):
         response = []
-        Time = request.data['Time']
+        Time = datetime.now().time()
         Route_id = request.data['Route_id']
+        print(Time)
         route_instance = models.BusRouteTiming.objects.filter(Route_id=Route_id, Timing__gte=Time)
+        print(route_instance)
         bus_route_serializer = serializers.BusRouteTimeSerializer(route_instance, many=True)
         temp_dict = {}
         for data in bus_route_serializer.data:

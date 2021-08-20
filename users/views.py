@@ -18,9 +18,11 @@ class AddUser(APIView):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
+            response['status'] = 1
             response['message'] = "registeration successfull"
             response_status = status.HTTP_200_OK
         else:
+            response['status'] = 0
             response['error'] = serializer.errors
             response_status = status.HTTP_400_BAD_REQUEST
 

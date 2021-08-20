@@ -40,11 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'users',
+    'api',
     'rest_framework',
-    
-    # 'users.apps.UsersConfig',
-    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
@@ -90,6 +88,9 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
+        'OPTIONS': {
+            'read_default_file': '/opt/lampp/etc/my.cnf',
+        }
     }
 }
 
@@ -152,4 +153,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ALLOWED_HOSTS=['*']
 CORS_ORIGIN_ALLOW_ALL = True 
 
-#AUTH_USER_MODEL = "users.Users"
+AUTH_USER_MODEL = "users.Users"

@@ -44,6 +44,7 @@ class Users(AbstractUser):
     objects = CustomerUserManager()
     first_name = None
     last_name = None
+    username = None
     user_id = models.AutoField(primary_key=True)
     fullname = models.CharField(max_length=200)
     email = models.EmailField(unique=True)
