@@ -158,7 +158,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 AUTH_USER_MODEL = "users.Users"
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
