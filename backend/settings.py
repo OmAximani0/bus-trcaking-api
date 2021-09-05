@@ -159,6 +159,8 @@ AUTH_USER_MODEL = "users.Users"
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 prod_db = dj_database_url.config(conn_max_age=500)
 
 django_heroku.settings(locals())
