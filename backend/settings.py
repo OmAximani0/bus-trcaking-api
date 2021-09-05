@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 import django_heroku
 import dj_database_url
 
@@ -160,6 +161,12 @@ AUTH_USER_MODEL = "users.Users"
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
 
 prod_db = dj_database_url.config(conn_max_age=500)
 
