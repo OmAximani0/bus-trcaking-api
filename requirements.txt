@@ -4,6 +4,7 @@ django-4-jet==1.0.9
 django-environ==0.10.0
 djangorestframework==3.14.0
 djangorestframework-simplejwt==5.2.2
+psycopg2==2.9.6
 PyJWT==2.6.0
 pytz==2023.3
 six==1.16.0
