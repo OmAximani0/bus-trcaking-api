@@ -94,7 +94,6 @@ DATABASES = {
     'PORT': env('DB_PORT'),
     'USER': env('DB_USER'),
     'PASSWORD': env('DB_PASSWORD'),
-    'OPTIONS': {'ssl': {'ca': env('MYSQL_ATTR_SSL_CA')}}
   }
 }
 
